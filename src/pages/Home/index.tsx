@@ -8,8 +8,15 @@ import {
   StartCountDownButton,
   TaskInput,
 } from "./style";
+import { useState } from "react";
 
 export function Home() {
+  const [task, setTask] = useState("");
+
+  function resetForm() {
+    setTask("");
+  }
+
   return (
     <HomeContainer>
       <form action="">
@@ -49,7 +56,7 @@ export function Home() {
           <span>0</span>
         </CountdownContainer>
 
-        <StartCountDownButton type="submit">
+        <StartCountDownButton disabled={!task} type="submit">
           <Play size={24} />
           Começar
         </StartCountDownButton>
